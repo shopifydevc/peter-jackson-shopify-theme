@@ -96,8 +96,8 @@
           "disabled": false,
           "settings": {
             "media_type": "image",
-            "desktop_image": "shopify://shop_images/EOYS_Update.webp",
-            "mobile_image": "shopify://shop_images/EOYS_Mob.webp",
+            "desktop_image": "shopify://shop_images/EOYS_NY_Update.webp",
+            "mobile_image": "shopify://shop_images/EOYS_NY_Update_MOB.webp",
             "video": null,
             "mobile_video": null,
             "video_poster": null,
