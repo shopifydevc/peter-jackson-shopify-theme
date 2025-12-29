@@ -187,7 +187,7 @@
                               href="{{ variant.url }}"
                               class="product-card__swatch-link"
                               aria-label="View {{ variant.title }} variant"
-                              style="border: {% if variant_name == 'White' %}2px solid var(--neutral-200){% else %}2px solid {{ variant_colour | default: 'var(--neutral-950)' }}{% endif %}; background-color: {{ variant_colour | default: 'var(--neutral-200)' }};"
+                              style="border: {% if variant_name == 'White' %} 2px solid var(--neutral-200) {% else %} 2px solid {{ variant_colour | default: 'var(--neutral-950)' }}{% endif %}; background-color: {{ variant_colour | default: 'var(--neutral-200)' }};"
                             >
                             </a>
                           {% endfor %}
