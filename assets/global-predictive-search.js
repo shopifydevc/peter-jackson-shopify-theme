@@ -10,11 +10,6 @@ class PredictiveSearch extends HTMLElement {
     }, 300).bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
   }
-
-  getQuery() {
-    return this.input.value.trim();
-  }
-
   onChange() {
     const searchTerm = this.input.value.trim();
 

@@ -30,8 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const bodyElements = document.querySelectorAll(".animate-paragraph-slide-up-scroll");
   const containerElements = document.querySelectorAll(".animate-container-cards-scroll");
   const containerLoadElements = document.querySelectorAll(".animate-container-cards-load");
-  const parallaxImages = document.querySelectorAll(".animate-image-parallax");
-  const parallaxHorizontalImages = document.querySelectorAll(".animate-image-parallax-horizontal");
 
   if (headingElements.length > 0) {
     new SplitType(headingElements, {

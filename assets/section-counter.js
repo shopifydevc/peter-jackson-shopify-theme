@@ -27,15 +27,6 @@
       stagger: {
         each: 0,
         start: "start",
-        onUpdate: function () {
-          const target = this.targets()[0];
-          const num = parseFloat(target.textContent).toFixed(0);
-
-          let innerHTML = prefix + num.toString();
-          if (finalDecimalLength) innerHTML += `.${finalDecimalLength}`;
-          innerHTML += suffix;
-          target.textContent = innerHTML;
-        },
       },
       scrollTrigger: {
         trigger: counter,
@@ -46,6 +37,6 @@
 
   function decimalStrFromNumber(num) {
     const fraction = num.toString().split(".");
-    fraction.length >= 2 ? fraction[1] : undefined;
+    return fraction.length >= 2 ? fraction[1] : undefined;
   }
 }

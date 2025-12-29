@@ -174,7 +174,7 @@
 }
 
 .size-guide__error {
-  color: var(--error, #c00);
+  color: #c00;
   display: block;
   margin-top: var(--space-2xs);
 }

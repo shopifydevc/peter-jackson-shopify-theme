@@ -8,21 +8,6 @@ function historyState() {
   return window.history && window.history.replaceState;
 }
 
-// Get URL Parameters
-function getParam(name) {
-  if ("URLSearchParams" in window) {
-    var params = new URLSearchParams(window.location.search);
-    return params.get(name);
-  } else {
-    var params = new RegExp("[?&]" + name + "=([^&#]*)").exec(window.location.href);
-    if (params == null) {
-      return null;
-    } else {
-      return decodeURI(params[1]) || 0;
-    }
-  }
-}
-
 // Formats money when we can't use the shopify money filter
 var Shopify = Shopify || {};
 Shopify.money_format = Shopify.money_format || "${{amount}}";
