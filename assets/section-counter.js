@@ -8,7 +8,6 @@
     const initialValue = parseFloat(counter.dataset.initial);
     const finalValue = parseFloat(counter.dataset.final);
     const duration = parseFloat(counter.dataset.duration);
-    const finalDecimalValue = decimalStrFromNumber(finalValue);
 
     counter.textContent = finalValue.toFixed(0);
     gsap.from(`#${counter.id}`, {
