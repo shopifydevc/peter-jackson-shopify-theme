@@ -22,8 +22,7 @@
 }
 
 .wishlist-button__icon-loading .loader--spinner {
-  /** .loader--spinner has border colour set to white, so this overrides it */
-  border: 1.175px solid black;
+  border: 1px solid black;
   border-bottom-color: transparent;
 }
 
