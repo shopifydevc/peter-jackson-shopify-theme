@@ -3,7 +3,6 @@ var ready = (callback) => {
   else document.addEventListener("DOMContentLoaded", callback);
 };
 
-// Backwards and forwards history/cache
 function historyState() {
   return window.history && window.history.replaceState;
 }
@@ -65,12 +64,12 @@ const settingsFromContainer = (containerElement) => {
     variant_inventory_quantities: JSON.parse(containerElement.getAttribute("data-variant-inventory-quantities")),
     product_title: containerElement.getAttribute("data-product-title"),
     show_low_stock_warning: containerElement.getAttribute("data-show-low-stock-warning"),
-  }
-}
+  };
+};
 
 // Variant selector and add to cart button logic
 window.updateProductPurchaseDetails = (containerElement) => {
-  const settings = settingsFromContainer(containerElement)
+  const settings = settingsFromContainer(containerElement);
 
   var options = [];
   options[1] = null;
@@ -79,7 +78,7 @@ window.updateProductPurchaseDetails = (containerElement) => {
 
   var variantOptions = containerElement.querySelectorAll(".js--variant-option");
   variantOptions.forEach(function (el) {
-    el.addEventListener("change", function (event) {
+    el.addEventListener("change", function () {
       checkVariants(containerElement, settings);
 
       variantOptions.forEach(function (opt) {
@@ -91,12 +90,12 @@ window.updateProductPurchaseDetails = (containerElement) => {
         }
       });
 
-      settings.variants.filter(v => {
+      settings.variants.filter((v) => {
         if (v.option1 == options[1] && v.option2 == options[2] && v.option3 == options[3]) {
           variant = v;
 
           containerElement.querySelector("input#js--variant-id").value = v.id;
-          containerElement.querySelectorAll('input[type="checkbox"].js--variant-id').forEach(el => {
+          containerElement.querySelectorAll('input[type="checkbox"].js--variant-id').forEach((el) => {
             el.value = v.id;
             el.setAttribute("data-price", v.price);
             if (v.available == true) {
@@ -108,22 +107,22 @@ window.updateProductPurchaseDetails = (containerElement) => {
             }
           });
 
-          containerElement.querySelectorAll(".js--variant-price").forEach(el => {
+          containerElement.querySelectorAll(".js--variant-price").forEach((el) => {
             el.innerHTML = Shopify.formatMoney(v.price);
           });
 
           if (v.compare_at_price > v.price) {
-            containerElement.querySelectorAll(".js--variant-compareatprice").forEach(el => {
+            containerElement.querySelectorAll(".js--variant-compareatprice").forEach((el) => {
               const price = Shopify.formatMoney(v.compare_at_price);
-              el.innerText = `Was ${price}`
+              el.innerText = `Was ${price}`;
             });
           } else {
-            containerElement.querySelectorAll(".js--variant-compareatprice").forEach(el => {
+            containerElement.querySelectorAll(".js--variant-compareatprice").forEach((el) => {
               el.innerText = "";
             });
           }
 
-          containerElement.querySelectorAll(".js--variant-sku").forEach(el => {
+          containerElement.querySelectorAll(".js--variant-sku").forEach((el) => {
             el.innerText = variant.sku;
           });
 
@@ -155,13 +154,7 @@ window.updateProductPurchaseDetails = (containerElement) => {
             if (addToCartButton) {
               addToCartButton.disabled = false;
               addToCartButton.style.display = "block";
-              var buttonText =
-                settings.show_low_stock_warning &&
-                inventoryQuantity >= 6 &&
-                inventoryQuantity <= 10 &&
-                !settings.product_title.includes("Gift Card")
-                  ? "Low In Stock - Add To Cart"
-                  : "Add To Cart";
+              var buttonText = settings.show_low_stock_warning && inventoryQuantity >= 6 && inventoryQuantity <= 10 && !settings.product_title.includes("Gift Card") ? "Low In Stock - Add To Cart" : "Add To Cart";
               addToCartButton.innerText = buttonText;
             }
             if (notifyMeButton) {
@@ -188,34 +181,36 @@ window.updateProductPurchaseDetails = (containerElement) => {
   var klaviyoForm = containerElement.querySelector(".klaviyo-form-WMidEs");
 
   if (klaviyoForm && notifyMeButtons.length > 0) {
-    notifyMeButtons.forEach(n => n.addEventListener("click", function () {
-      if (klaviyoForm.style.display === "none" || klaviyoForm.style.display === "") {
-        klaviyoForm.style.display = "block";
-        n.style.display = "none";
-      }
-    }));
+    notifyMeButtons.forEach((n) =>
+      n.addEventListener("click", function () {
+        if (klaviyoForm.style.display === "none" || klaviyoForm.style.display === "") {
+          klaviyoForm.style.display = "block";
+          n.style.display = "none";
+        }
+      })
+    );
   }
 };
 
 ready(() => {
-  const elem = document.querySelector("#product")
-  if (elem) window.updateProductPurchaseDetails(elem)
-  else console.warn("no product found for this page, not updating purchase details")
-})
+  const elem = document.querySelector("#product");
+  if (elem) window.updateProductPurchaseDetails(elem);
+  else console.warn("no product found for this page, not updating purchase details");
+});
 
 // Checks the variants and disables combinations that are not valid
 function checkVariants(containerElement, settings) {
   let $this = event.target;
   if ($this !== undefined) {
     let availableVariants = new Set();
-    settings.variants.filter((variant, k) => {
+    settings.variants.filter((variant) => {
       if (variant[$this.name] == $this.value) {
         availableVariants.add(variant);
       }
     });
 
     let optionGroups = {};
-    availableVariants.forEach(variant => {
+    availableVariants.forEach((variant) => {
       let options = Object.entries(variant);
       for (const [key, value] of options) {
         if (value != null) {
@@ -229,7 +224,7 @@ function checkVariants(containerElement, settings) {
       }
     });
 
-    containerElement.querySelectorAll(".js--variant-option").forEach(input => {
+    containerElement.querySelectorAll(".js--variant-option").forEach((input) => {
       if (input.name != $this.name) {
         if (optionGroups[input.name].includes(input.value) == false) {
           input.disabled = true;
@@ -241,7 +236,7 @@ function checkVariants(containerElement, settings) {
     });
   }
 
-  containerElement.querySelectorAll(".js--variant-options").forEach(group => {
+  containerElement.querySelectorAll(".js--variant-options").forEach((group) => {
     let firstAvailable = null;
     let checkedOptions = group.querySelectorAll(".js--variant-option:checked").length;
     if (checkedOptions == 0) {
@@ -278,13 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkScroll() {
-    if (
-      document.body.classList.contains("menu-open") ||
-      document.body.classList.contains("cart-open") ||
-      document.body.classList.contains("search-open") ||
-      document.body.classList.contains("filter-open") ||
-      document.body.classList.contains("search-filter-open")
-    ) {
+    if (document.body.classList.contains("menu-open") || document.body.classList.contains("cart-open") || document.body.classList.contains("search-open") || document.body.classList.contains("filter-open") || document.body.classList.contains("search-filter-open")) {
       ticking = false;
       return;
     }

@@ -1,6 +1,6 @@
 (() => {
-  const productHandle = document.currentScript.getAttribute('data-product-handle')
-  const templateIsProduct = document.currentScript.getAttribute('data-template-is-product') === "true"
+  const productHandle = document.currentScript.getAttribute("data-product-handle");
+  const templateIsProduct = document.currentScript.getAttribute("data-template-is-product") === "true";
 
   function getRecentlyViewed() {
     let recentlyViewed = localStorage.getItem("recentlyViewed");
@@ -43,7 +43,7 @@
     if (document.getElementById("recently-viewed") != null) {
       if (items.length > 0) {
         items.forEach(function (item, index) {
-          if ((index + 1) <= limit) {
+          if (index + 1 <= limit) {
             let url = `/products/${item.handle}?view=card`;
             fetch(url, {
               method: "GET",
@@ -61,7 +61,7 @@
               .then(function (card) {
                 el.insertAdjacentHTML("beforeend", card);
               })
-              .catch(function (error) {
+              .catch(function () {
                 let cleanUpArray = items.filter((i) => i.handle !== item.handle);
                 localStorage.setItem("recentlyViewed", JSON.stringify(cleanUpArray));
               });
@@ -74,8 +74,8 @@
   }
 
   const ready = (callback) => {
-    if (document.readyState !== 'loading') callback();
-    else document.addEventListener('DOMContentLoaded', callback);
+    if (document.readyState !== "loading") callback();
+    else document.addEventListener("DOMContentLoaded", callback);
   };
 
   ready(function () {
@@ -85,13 +85,13 @@
     }
 
     document.addEventListener(
-      'click',
+      "click",
       function (event) {
-        if (event.target.closest('.splide__arrow')) {
+        if (event.target.closest(".splide__arrow")) {
           event.preventDefault();
         }
       },
       true
     );
   });
-})()
+})();

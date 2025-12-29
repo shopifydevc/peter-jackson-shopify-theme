@@ -1,9 +1,6 @@
 {
-  // In custom scope to avoid conflicting local variables
   const sectionId = document.currentScript.dataset.sectionId;
-  const counters = document.querySelectorAll(
-    `#counter-${sectionId} .countervalue__main-value`,
-  );
+  const counters = document.querySelectorAll(`#counter-${sectionId} .countervalue__main-value`);
 
   for (let i = 0; i < counters.length; i++) {
     const counter = counters[i];
@@ -11,12 +8,7 @@
     const initialValue = parseFloat(counter.dataset.initial);
     const finalValue = parseFloat(counter.dataset.final);
     const duration = parseFloat(counter.dataset.duration);
-
-    const prefix = counter.dataset.prefix ?? "";
-    const suffix = counter.dataset.suffix ?? "";
-
     const finalDecimalValue = decimalStrFromNumber(finalValue);
-    const finalDecimalLength = finalDecimalValue ? finalDecimalValue.length : 0;
 
     counter.textContent = finalValue.toFixed(0);
     gsap.from(`#${counter.id}`, {
@@ -30,8 +22,8 @@
       },
       scrollTrigger: {
         trigger: counter,
-        start: "top bottom-=100"
-      }
+        start: "top bottom-=100",
+      },
     });
   }
 
