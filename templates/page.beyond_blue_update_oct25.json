@@ -1,16 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "blog_header_PxPRFx": {
+      "type": "blog-header",
+      "name": "Blog Header",
+      "settings": {
+        "journal_type": "jackson"
+      }
+    },
     "hero_primary_Jzfr7x": {
       "type": "hero-primary",
       "name": "Hero Section",
       "settings": {
         "media_type": "image",
-        "desktop_image": "shopify://shop_images/Beyond_Blue_Hero_9e088d72-30aa-442c-967c-1b58f87f6b44.webp",
-        "mobile_image": "shopify://shop_images/Beyond_Blue_Hero_Mob.webp",
         "heading": "Beyond Blue. Breaking The Stigma",
-        "svg_image": "shopify://shop_images/Hero_BB_62094d41-27d7-450b-b299-665b6d19623b.svg",
         "svg_size": "large",
-        "mobile_svg_image": "shopify://shop_images/Hero_BB_Mob_be867f57-2fff-41ef-a7a5-33862ccd88e0.svg",
         "heading_level": "h1",
         "heading_animation": "none",
         "description": "",
@@ -54,7 +66,6 @@
         "show_top_border": false,
         "show_bottom_border": true,
         "full_width": false,
-        "first_image": "shopify://shop_images/The_Blue_Shirt_Initiative_94dd28d4-d88c-4b3b-aa29-5433ad5f2e4f.webp",
         "image_link": "",
         "animate_images": false,
         "alignment": "left",
@@ -105,7 +116,6 @@
         "show_top_border": false,
         "show_bottom_border": true,
         "full_width": false,
-        "first_image": "shopify://shop_images/Recognising_BB.webp",
         "image_link": "",
         "animate_images": false,
         "alignment": "right",
@@ -187,7 +197,6 @@
         "anchor_id": "",
         "show_top_border": true,
         "show_bottom_border": true,
-        "icon": "shopify://shop_images/beyond-blue-footer-logo_dcff6604-67e8-4363-a7e7-3072847a2e76.svg",
         "heading": "Who is Beyond Blue?",
         "heading_animation": "none",
         "text": "Beyond Blue is one of Australia's leading mental health organisations, providing support, education, and advocacy to break down barriers around mental health. Their 24/7 Support Service is a lifeline for countless individuals, offering immediate help when it’s needed most.Their mission is clear: to empower Australians to prioritize their mental health and seek support without shame or hesitation. With up to 300,000 contacts annually, Beyond Blue is not just an organisation—they are a movement for hope, connection, and resilience.",
@@ -205,7 +214,6 @@
         "show_top_border": false,
         "show_bottom_border": true,
         "full_width": false,
-        "first_image": "shopify://shop_images/75_Years_BB.webp",
         "image_link": "",
         "animate_images": false,
         "alignment": "left",
@@ -224,7 +232,6 @@
         "anchor_id": "",
         "show_top_border": false,
         "show_bottom_border": false,
-        "icon": "shopify://shop_images/Beyond-Blue-White-Large_d8a3d3d2-405b-4705-aedc-35bce48b5afe.svg",
         "heading": "",
         "heading_style": "decorative",
         "heading_animation": "none",
@@ -240,7 +247,6 @@
         "anchor_id": "",
         "show_top_border": false,
         "show_bottom_border": true,
-        "icon": "shopify://shop_images/speech-bubble.svg",
         "heading": "If you're going through a hard time right now, the Beyond Blue Support Service is free and available 24/7.",
         "heading_animation": "none",
         "text": "Call 1300 224 636 or visit beyondblue.org.auLearn the importance of mental health and how to manage anxiety & depression.",
@@ -252,6 +258,7 @@
     }
   },
   "order": [
+    "blog_header_PxPRFx",
     "hero_primary_Jzfr7x",
     "heading_with_text_pV6AKa",
     "image_with_text_MbFKE3",
