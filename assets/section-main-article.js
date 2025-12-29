@@ -8,13 +8,11 @@
       const charIndex = text.indexOf(firstChar);
 
       if (charIndex >= 0) {
-        const newHtml =
-          text.substring(0, charIndex) +
-          '<span class="leading-letter">' +
-          firstChar +
-          '</span>' +
-          text.substring(charIndex + 1);
-        firstParagraph.innerHTML = newHtml;
+        firstParagraph.innerHTML = text.substring(0, charIndex) +
+            '<span class="leading-letter">' +
+            firstChar +
+            '</span>' +
+            text.substring(charIndex + 1);
       }
     }
   }

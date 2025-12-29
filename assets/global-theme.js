@@ -85,8 +85,7 @@ window.updateProductPurchaseDetails = (containerElement) => {
         if (opt.tagName.toLowerCase() == "input" && opt.checked == true) {
           var optionName = opt.getAttribute("name");
           var optionPos = parseInt(optionName.replace("option", ""));
-          var optionValue = opt.value;
-          options[optionPos] = optionValue;
+          options[optionPos] = opt.value;
         }
       });
 
@@ -154,8 +153,7 @@ window.updateProductPurchaseDetails = (containerElement) => {
             if (addToCartButton) {
               addToCartButton.disabled = false;
               addToCartButton.style.display = "block";
-              var buttonText = settings.show_low_stock_warning && inventoryQuantity >= 6 && inventoryQuantity <= 10 && !settings.product_title.includes("Gift Card") ? "Low In Stock - Add To Cart" : "Add To Cart";
-              addToCartButton.innerText = buttonText;
+              addToCartButton.innerText = settings.show_low_stock_warning && inventoryQuantity >= 6 && inventoryQuantity <= 10 && !settings.product_title.includes("Gift Card") ? "Low In Stock - Add To Cart" : "Add To Cart";
             }
             if (notifyMeButton) {
               notifyMeButton.style.display = "none";

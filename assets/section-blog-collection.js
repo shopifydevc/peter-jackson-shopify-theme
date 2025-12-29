@@ -47,18 +47,16 @@ const renderPagination = () => {
     return;
   }
 
-  const paginationHTML = [
+  paginationContainer.innerHTML = [
     currentPageNumber > 1 && createPageLink(currentPageNumber - 1, "Previous", "prev"),
-    ...Array.from({ length: totalPages }, (_, i) => {
+    ...Array.from({length: totalPages}, (_, i) => {
       const pageNum = i + 1;
       return pageNum === currentPageNumber ? `<span class="blog-collection__pagination-current">${pageNum}</span>` : createPageLink(pageNum, pageNum);
     }),
     currentPageNumber < totalPages && createPageLink(currentPageNumber + 1, "Next", "next"),
   ]
-    .filter(Boolean)
-    .join("");
-
-  paginationContainer.innerHTML = paginationHTML;
+      .filter(Boolean)
+      .join("");
 };
 
 const createPageLink = (pageNum, text, modifier = "") => {

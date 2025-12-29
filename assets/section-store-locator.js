@@ -279,9 +279,7 @@ class StoreLocator {
       return;
     }
 
-    const html = matches.map((item) => `<div class="store-locator__autocomplete-item" data-name="${item.dataset.name}">${item.dataset.name} - ${item.dataset.address}</div>`).join("");
-
-    this.autocomplete.innerHTML = html;
+    this.autocomplete.innerHTML = matches.map((item) => `<div class="store-locator__autocomplete-item" data-name="${item.dataset.name}">${item.dataset.name} - ${item.dataset.address}</div>`).join("");
 
     this.autocomplete.querySelectorAll(".store-locator__autocomplete-item").forEach((div) => {
       div.onclick = () => {
@@ -327,9 +325,7 @@ class StoreLocator {
   }
 
   showLocalPostcodeResults(postcode, locations) {
-    const html = '<div class="store-locator__autocomplete-header heading--xl">Stores in ' + postcode + "</div>" + locations.map((loc) => `<div class="store-locator__autocomplete-item" data-name="${loc.name}"><strong class="body--bold">${loc.name}</strong></div>`).join("");
-
-    this.autocomplete.innerHTML = html;
+    this.autocomplete.innerHTML = '<div class="store-locator__autocomplete-header heading--xl">Stores in ' + postcode + "</div>" + locations.map((loc) => `<div class="store-locator__autocomplete-item" data-name="${loc.name}"><strong class="body--bold">${loc.name}</strong></div>`).join("");
 
     this.autocomplete.querySelectorAll(".store-locator__autocomplete-item").forEach((div) => {
       div.onclick = () => {
@@ -405,16 +401,13 @@ class StoreLocator {
         locations: locations,
       };
 
-      const html =
-        '<div class="store-locator__autocomplete-header heading--xl">5 Nearest Stores</div>' +
-        locations
-          .map((loc) => {
-            const distanceText = loc.postcode === postcode ? "" : ` - ${loc.distance.toFixed(1)} km away`;
-            return `<div class="store-locator__autocomplete-item" data-name="${loc.name}"><strong class="body--bold">${loc.name}</strong>${distanceText}</div>`;
-          })
-          .join("");
-
-      this.autocomplete.innerHTML = html;
+      this.autocomplete.innerHTML = '<div class="store-locator__autocomplete-header heading--xl">5 Nearest Stores</div>' +
+          locations
+              .map((loc) => {
+                const distanceText = loc.postcode === postcode ? "" : ` - ${loc.distance.toFixed(1)} km away`;
+                return `<div class="store-locator__autocomplete-item" data-name="${loc.name}"><strong class="body--bold">${loc.name}</strong>${distanceText}</div>`;
+              })
+              .join("");
 
       this.autocomplete.querySelectorAll(".store-locator__autocomplete-item").forEach((div) => {
         div.onclick = () => {
@@ -450,16 +443,13 @@ class StoreLocator {
   }
 
   displayCachedPostcodeResults(postcode, cachedData) {
-    const html =
-      '<div class="store-locator__autocomplete-header heading--xl">5 Nearest Stores</div>' +
-      cachedData.locations
-        .map((loc) => {
-          const distanceText = loc.postcode === postcode ? "" : ` - ${loc.distance.toFixed(1)} km away`;
-          return `<div class="store-locator__autocomplete-item" data-name="${loc.name}"><strong class="body--bold">${loc.name}</strong>${distanceText}</div>`;
-        })
-        .join("");
-
-    this.autocomplete.innerHTML = html;
+    this.autocomplete.innerHTML = '<div class="store-locator__autocomplete-header heading--xl">5 Nearest Stores</div>' +
+        cachedData.locations
+            .map((loc) => {
+              const distanceText = loc.postcode === postcode ? "" : ` - ${loc.distance.toFixed(1)} km away`;
+              return `<div class="store-locator__autocomplete-item" data-name="${loc.name}"><strong class="body--bold">${loc.name}</strong>${distanceText}</div>`;
+            })
+            .join("");
 
     this.autocomplete.querySelectorAll(".store-locator__autocomplete-item").forEach((div) => {
       div.onclick = () => {

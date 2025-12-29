@@ -123,13 +123,13 @@
       list.innerHTML = "";
 
       if (items?.length > 0) {
-        const html = items
-          .map((item) => {
-            const baseUrl = item.image?.replace(/width=\d+/, "") || "";
-            const sep = baseUrl.includes("?") ? "&" : "?";
-            const imgHtml =
-              showImage && item.image
-                ? `
+        list.innerHTML = items
+            .map((item) => {
+              const baseUrl = item.image?.replace(/width=\d+/, "") || "";
+              const sep = baseUrl.includes("?") ? "&" : "?";
+              const imgHtml =
+                  showImage && item.image
+                      ? `
               <div class="predictive-search__image-container">
                 <img src="${item.image}" 
                   srcset="${baseUrl}${sep}width=80 1x, ${baseUrl}${sep}width=160 2x, ${baseUrl}${sep}width=240 3x"
@@ -137,18 +137,16 @@
                   loading="eager" fetchpriority="high" decoding="async"
                   width="40" height="40">
               </div>`
-                : "";
+                      : "";
 
-            return `<li class="predictive-search__item">
+              return `<li class="predictive-search__item">
               <a href="${item.url}" class="predictive-search__link">
                 ${imgHtml}
                 <span class="predictive-search__text body">${item.title}</span>
               </a>
             </li>`;
-          })
-          .join("");
-
-        list.innerHTML = html;
+            })
+            .join("");
         container.style.display = "block";
       } else {
         container.style.display = "none";
