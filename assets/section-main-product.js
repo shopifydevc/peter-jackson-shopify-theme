@@ -75,7 +75,7 @@ const registerBuyableProduct = (isMainElement) => (elementWrapper) => {
           1100: {
             type: "loop",
             direction: "ltr",
-            height: product_image_height * ((window.innerWidth * 1) / product_image_width),
+            height: product_image_height * ((window.innerWidth) / product_image_width),
             arrows: true,
             perPage: 1,
             pagination: false,
@@ -322,7 +322,6 @@ function initStickyCartBar(elementWrapper) {
 
   window.addEventListener("scroll", checkButtonPosition);
 
-  drag: false,
     window.addEventListener("resize", function () {
       checkButtonPosition();
       syncAll();
@@ -365,22 +364,6 @@ function getSelectedVariantOptions(elementWrapper) {
   return selectedOptions;
 }
 
-// /** @param elementWrapper {HTMLElement} */
-// function getCurrentVariant(elementWrapper) {
-//   const selectedOptions = [];
-//   const optionInputs = elementWrapper.querySelectorAll(".js--variant-option:checked");
-//
-//   optionInputs.forEach(function (input) {
-//     selectedOptions.push(input.value);
-//   });
-//
-//   return (
-//     variants.find(function (variant) {
-//       return variant.option1 === selectedOptions[0] && variant.option2 === selectedOptions[1] && variant.option3 === selectedOptions[2];
-//     }) || current_variant
-//   );
-// }
-//
 function updateStickyProductInfo(elementWrapper) {
   const stickyInfo = elementWrapper.querySelector(".js--sticky-product-info");
   if (!stickyInfo) return;
@@ -559,12 +542,12 @@ const removeFromWishlist = async (productId) => {
         console.error(response)
       } else {
         switch (response.status) {
-          case 201: // ADDED/REMOVED
+          case 201:
             isWishlisted = !isWishlisted
             break
-          case 200: // ALREADY EXISTS
+          case 200:
             break
-          default:  // ERROR
+          default:
             console.error("Could not add this product to your wishlist. Please try again later.")
             response.json().then(console.error)
             break
