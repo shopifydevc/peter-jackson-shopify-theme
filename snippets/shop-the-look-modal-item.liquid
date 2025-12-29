@@ -62,7 +62,6 @@
             Buy In 4 Interest Free Payments of {{ current_variant.price | divided_by: 4 | money_with_currency }}
             {{ 'afterpay' | payment_type_svg_tag }}
           </p>
-          {% render 'wishlist-button', in_wishlist: in_wishlist, product_id: product.id %}
         </div>
 
         <div class="shop-the-look__product-details-header">
