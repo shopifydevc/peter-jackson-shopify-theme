@@ -1,12 +1,13 @@
 {% doc %}
-@description This snippet renders a product within the splide slider for the "shop the look" section.
-@param {boolean} in_wishlist - If the product is inside the customer's wishlist
-@param {string} product_id - The product id to provide the form, for POST and DELETE endpoints
+  @description This snippet renders a product within the splide slider for the "shop the look" section.
+
+  @param {boolean} in_wishlist - If the product is inside the customer's wishlist
+  @param {string} product_id - The product id to provide the form, for POST and DELETE endpoints
 {% enddoc %}
 
-{{ "snippet-wishlist-button.css" | asset_url | stylesheet_tag }}
+{{ 'snippet-wishlist-button.css' | asset_url | stylesheet_tag }}
 
-{% if customer == nil %} 
+{% if customer == null %}
   <div class="wishlist-redirect">
     <a class="wishlist-redirect-button" href="/pages/wishlist">
       <span class="wishlist-button__icon-add-to-wishlist">
@@ -17,10 +18,20 @@
 {% else %}
   <form class="wishlist-form" data-is-wishlisted="{{ in_wishlist }}" data-product-id="{{ product_id }}">
     <button type="submit" class="wishlist-button">
-      <span class="wishlist-button__icon-add-to-wishlist" {% if in_wishlist %} style="display: none;" {% endif %}>
+      <span
+        class="wishlist-button__icon-add-to-wishlist"
+        {% if in_wishlist %}
+          style="display: none;"
+        {% endif %}
+      >
         {% render '_icon-bookmark' %}
       </span>
-      <span class="wishlist-button__icon-remove-from-wishlist" {% if in_wishlist == false %} style="display: none;" {% endif %}>
+      <span
+        class="wishlist-button__icon-remove-from-wishlist"
+        {% if in_wishlist = false %}
+          style="display: none;"
+        {% endif %}
+      >
         {% render '_icon-bookmark-filled' %}
       </span>
       <span class="wishlist-button__icon-loading" hidden>
