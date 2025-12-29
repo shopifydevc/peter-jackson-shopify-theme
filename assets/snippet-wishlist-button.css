@@ -1,8 +1,10 @@
-.wishlist-form, .wishlist-redirect {
+.wishlist-form,
+.wishlist-redirect {
   height: 100%;
 }
 
-.wishlist-button, .wishlist-redirect-button {
+.wishlist-button,
+.wishlist-redirect-button {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -22,7 +24,6 @@
 }
 
 .wishlist-button__icon-loading .loader--spinner {
-  border: 1px solid black;
+  border: 1.175px solid black;
   border-bottom-color: transparent;
 }
-
